@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard SITTA</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+
+  <nav class="navbar">
+    <div class="logo-dashboard">SITTA UT</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+      <li><a href="tracking.html">Tracking Pengiriman</a></li>
+      <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard-container">
+
+    <header class="hero">
+      <div class="hero-left">
+        <span class="badge">Dashboard Aplikasi SITTA</span>
+        <h1 id="greetingText">Selamat Datang, Admin SITTA</h1>
+        <p id="userRole">Login sebagai Administrator - Pusat</p>
+      </div>
+      <div class="hero-right">
+        <h2>1587</h2>
+        <p>Total Stok</p>
+      </div>
+    </header>
+
+    <div class="card-container">
+      <div class="card">
+        <h3>Informasi Bahan Ajar</h3>
+        <p>Lihat daftar bahan ajar, stok, edisi, dan cover modul terbaru secara real-time.</p>
+        <button onclick="location.href='stok.html'">Buka Stok</button>
+      </div>
+
+      <div class="card">
+        <h3>Tracking Pengiriman</h3>
+        <p>Cari status pengiriman bahan ajar Anda berdasarkan Nomor Delivery Order.</p>
+        <button onclick="location.href='tracking.html'">Cari DO</button>
+      </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  
+  <script>
+    // 1. Ambil data user dari LocalStorage (data ini dikirim dari halaman login)
+    const userSession = localStorage.getItem('userTersambung');
+
+    // 2. Cek apakah ada user yang login
+    if (userSession) {
+        const user = JSON.parse(userSession);
+        
+        // Ganti teks nama sesuai user yang login
+        document.getElementById('greetingText').innerText = `Selamat Datang, ${user.nama}!`;
+        
+        // Ganti teks role (opsional)
+        document.getElementById('userRole').innerText = `Login sebagai ${user.role} - ${user.lokasi}`;
+    } else {
+        // Jika tidak ada data login (mencoba masuk lewat URL), lempar kembali ke halaman login
+        alert("Anda harus login terlebih dahulu!");
+        window.location.href = 'index.html';
+    }
+
+    // 3. Fungsi Logout
+    document.getElementById('logoutLink').addEventListener('click', function(e) {
+        e.preventDefault(); // Mencegah link berpindah langsung
+        
+        // Hapus data login dari browser
+        localStorage.removeItem('userTersambung');
+        
+        // Beri pesan dan pindah ke halaman login
+        alert("Anda telah berhasil logout.");
+        window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>

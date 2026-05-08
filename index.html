@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login SITTA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+
+  <div class="login-container">
+    <div class="login-card">
+
+      <div class="logo">UT</div>
+
+      <h1>Selamat Datang</h1>
+      <p class="subtitle">Aplikasi Pemesanan Bahan Ajar SITTA</p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="contoh: admin@ut.ac.id" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" id="loginBtn" class="btn-login">
+          Login
+        </button>
+      </form>
+
+      <div class="links">
+        <a href="#" onclick="alert('Fitur ini sedang dalam pengembangan')">Lupa Password?</a>
+        <a href="#" onclick="alert('Silahkan hubungi admin untuk pendaftaran')">Daftar</a>
+      </div>
+
+      <div class="demo-box">
+        <h4>Akun demo:</h4>
+        <p>admin@ut.ac.id / admin123</p>
+        <p>rina@ut.ac.id / rina123</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  
+  <script>
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', function(e) {
+        // Mencegah halaman refresh saat form dikirim
+        e.preventDefault();
+
+        const emailInput = document.getElementById('email').value.trim();
+        const passInput = document.getElementById('password').value;
+
+        // 1. Validasi keberadaan dataPengguna
+        if (typeof dataPengguna === 'undefined') {
+            alert('Error: Data pengguna tidak ditemukan. Pastikan file js/data.js sudah benar.');
+            return;
+        }
+
+        // 2. Pencarian user di dalam array dataPengguna
+        const user = dataPengguna.find(u => u.email === emailInput && u.password === passInput);
+
+        if (user) {
+            // Simpan info user ke LocalStorage (Kecuali password untuk keamanan)
+            const userDataToStore = {
+                nama: user.nama,
+                email: user.email,
+                role: user.role
+            };
+            
+            localStorage.setItem('userTersambung', JSON.stringify(userDataToStore));
+            
+            // Notifikasi sukses (opsional) sebelum pindah halaman
+            console.log('Login Berhasil sebagai:', user.nama);
+            
+            // Pindah ke halaman dashboard
+            window.location.href = 'dashboard.html';
+        } else {
+            // Jika login gagal
+            alert('Email atau Password salah! Periksa kembali akun demo Anda.');
+            // Kosongkan input password untuk keamanan
+            document.getElementById('password').value = '';
+        }
+    });
+  </script>
+</body>
+</html>

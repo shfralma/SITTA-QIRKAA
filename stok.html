@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Buku - SITTA QIRKA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="stok-page">
+
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">SITTA QIRKA</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html" class="active">Informasi Stok</a>
+            <a href="tracking.html">Tracking</a>
+            <button class="nav-button danger">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="stok-header">
+            <h2>Daftar Stok Mata Kuliah</h2>
+            <p>Kelola dan pantau ketersediaan modul mata kuliah di sini.</p>
+        </div>
+
+        <div class="filter-wrapper">
+            <div class="search-box">
+                <span style="margin-left: 10px;">🔍</span> 
+                <input type="text" id="searchInput" placeholder="Cari kode atau nama mata kuliah...">
+            </div>
+            </div>
+
+        <div class="stok-grid" id="stok-container">
+        </div>
+
+        <div id="no-results" style="display: none; text-align: center; padding: 50px; color: #94a3b8;">
+            Data tidak ditemukan...
+        </div>
+
+        <div class="add-stok-section">
+            <h3>Tambah Baris Stok Baru</h3>
+            
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <p>Klik di sini untuk upload gambar cover</p>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
+
+            <div class="input-form-row">
+                <input type="text" placeholder="Kode Barang" class="stok-input">
+                <input type="text" placeholder="Nama Barang" class="stok-input">
+                <input type="number" placeholder="Jumlah Stok" class="stok-input">
+                <button class="btn-submit-stok">Tambah</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script> 
+    <script src="js/script.js"></script> 
+</body>
+</html>

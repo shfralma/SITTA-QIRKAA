@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - SITTA QIRKA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tracking-page">
+
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">SITTA QIRKA</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html">Informasi Stok</a>
+            <a href="tracking.html" class="active">Tracking</a>
+            <button class="nav-button danger">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container tracking-main-container">
+        
+        <div class="tracking-search-card">
+            <div class="tracking-card-header">
+                <h2>Tracking Pengiriman</h2>
+                <p>Masukkan Nomor Delivery Order untuk melihat nama mahasiswa, status, ekspedisi, tanggal kirim, paket, total pembayaran, dan riwayat perjalanan.</p>
+            </div>
+
+            <div class="tracking-search-area">
+                <input type="text" id="resiInput" placeholder="Contoh: 2023001234">
+                <button class="btn-submit-stok" id="btnLacak">Cari</button>
+            </div>
+
+            <div class="do-hint-area">
+                <span class="hint-label">Contoh Nomor DO:</span>
+                <span class="do-number">2023001234</span>
+                <span class="do-number">2023005678</span>
+            </div>
+        </div>
+
+        <div id="tracking-result" class="tracking-result-container" style="display: none;">
+            <div class="status-result-card">
+                <h3 class="result-title">Hasil Tracking</h3>
+                
+                <div class="info-row">
+                    <strong>Nomor DO:</strong> <span id="res-do">-</span>
+                </div>
+                <div class="info-row">
+                    <strong>Nama Mahasiswa:</strong> <span id="res-nama">-</span>
+                </div>
+                <div class="info-row">
+                    <strong>Status Pengiriman:</strong> <span id="res-status">-</span>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="res-progress" style="width: 70%;">70%</div>
+                </div>
+
+                <div class="detail-grid">
+                    <p><strong>Ekspedisi:</strong> <span id="res-ekspedisi">-</span></p>
+                    <p><strong>Tanggal Kirim:</strong> <span id="res-tgl">-</span></p>
+                    <p><strong>Jenis Paket:</strong> <span id="res-paket">-</span></p>
+                    <p><strong>Total Pembayaran:</strong> <span id="res-bayar">-</span></p>
+                </div>
+
+                <div class="riwayat-section">
+                    <h4>Riwayat Perjalanan</h4>
+                    <ul id="res-riwayat" class="riwayat-list">
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/data.js"></script> 
+    <script src="js/script.js"></script>
+</body>
+</html>
