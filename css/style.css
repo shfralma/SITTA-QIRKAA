@@ -1,0 +1,645 @@
+/* =========================
+    GLOBAL & RESET
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+    HALAMAN LOGIN (.login-page)
+   ========================= */
+.login-page {
+    height: 100vh;
+    background: linear-gradient(135deg, #0d47a1, #03a9f4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 380px;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #f4c430;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d47a1;
+}
+
+.login-card h1 {
+    font-size: 36px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 5px rgba(25,118,210,0.3);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #1565c0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover { background: #0d47a1; }
+
+.links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    text-decoration: none;
+    color: #1565c0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.links a:hover { text-decoration: underline; }
+
+.demo-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f7fb;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.demo-box h4 { margin-bottom: 8px; color: #333; }
+.demo-box p { font-size: 13px; color: #555; margin-bottom: 5px; }
+
+/* =========================
+    HALAMAN DASHBOARD, STOK & TRACKING
+   ========================= */
+.dashboard-page, .stok-page {
+    background: #f3f4f6;
+    color: #111827;
+    overflow-x: hidden;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 12px 35px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.logo-dashboard, .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d47a1;
+    text-decoration: none;
+}
+
+.nav-links, nav {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a, nav a {
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, nav a:hover, .nav-links a.active {
+    color: #1565c0;
+}
+
+.dashboard-container, .container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+/* Hero Section (Dashboard Only) */
+.hero {
+    background: linear-gradient(135deg, #1565c0, #03a9f4);
+    border-radius: 25px;
+    padding: 50px 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(21, 101, 192, 0.2);
+}
+
+.hero-left h1 { font-size: 32px; margin: 10px 0; font-weight: 700; }
+.badge { background: rgba(255, 255, 255, 0.2); padding: 6px 15px; border-radius: 20px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.hero-right h2 { font-size: 50px; line-height: 1; }
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-8px); }
+.card h3 { font-size: 20px; margin-bottom: 12px; color: #1f2937; }
+.card p { color: #6b7280; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+
+/* ============================================================
+   KOMPONEN KHUSUS STOK & TRACKING
+   ============================================================ */
+
+/* Header & Filter Area */
+.stok-header, .section-title { margin: 20px 0 30px; }
+.stok-header h2, .section-title h1 { font-size: 24px; color: #111827; }
+.section-title p { color: #6b7280; font-size: 14px; margin-top: 5px; }
+
+.filter-wrapper {
+    display: flex;
+    justify-content: center; /* Membuat search box di tengah */
+    margin-bottom: 40px;
+}
+
+.search-box {
+    width: 100%; /* Atau sesuaikan dengan keinginanmu */
+    max-width: 800px; 
+}
+
+/* Search Box Global */
+.search-box {
+    flex: 1; /* Biar memanjang memenuhi ruang yang ditinggalkan dropdown */
+    max-width: 1200px;
+    background: white;
+    border-radius: 15px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.search-box input {
+    border: none;
+    padding: 15px;
+    width: 100%;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #444;
+}
+
+/* ============================================================
+   HALAMAN STOK (stok.html) - KHUSUS PERBAIKAN GRID & CARD
+   ============================================================ */
+
+/* Container Utama Grid */
+.stok-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+    padding: 10px 0;
+}
+
+/* Kartu Stok */
+.stok-card {
+    position: relative; /* KUNCI UTAMA: Supaya badge nempel di kartu buku */
+    background: white;
+    border-radius: 25px; 
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #edf2f7;
+}
+
+.stok-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+}
+
+/* Wrapper Gambar */
+.stok-img-wrapper { 
+    position: relative; 
+    height: 320px; 
+    overflow: hidden; 
+    background: #f1f5f9; 
+}
+
+.stok-img-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.stok-card:hover .stok-img-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Badge Stok Tersedia */
+.stok-badge { 
+    position: absolute; /* Dia akan nempel ke .stok-card */
+    top: 15px; 
+    right: 15px; 
+    background: #10b981; 
+    color: white; 
+    padding: 6px 14px; 
+    border-radius: 50px; 
+    font-size: 11px; 
+    font-weight: 700; 
+    z-index: 10; /* Biar di depan gambar */
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Area Informasi Teks */
+.stok-info { 
+    padding: 25px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.kode-buku {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1565c0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stok-info h3 { 
+    font-size: 18px; 
+    font-weight: 700; 
+    color: #1f2937; 
+    margin-bottom: 10px;
+    line-height: 1.4;
+    min-height: 50px; /* Biar tinggi judul seragam */
+}
+
+.edisi-buku {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 20px;
+}
+
+/* Baris Harga & Detail */
+.price-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-top: 1px solid #f1f5f9; 
+    padding-top: 20px; 
+    margin-top: auto; 
+}
+
+.price { 
+    font-weight: 800; 
+    color: #f97316; /* Oranye Terang */
+    font-size: 17px; 
+}
+
+.btn-detail {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-detail:hover {
+    background: #1565c0;
+    color: white;
+}
+
+/* ============================================================
+   FITUR TAMBAH STOK BARU (DI BARIS PALING BAWAH CSS)
+   ============================================================ */
+.add-stok-section {
+    margin-top: 60px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.add-stok-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #111827;
+}
+
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    border-radius: 15px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.upload-area:hover {
+    background: #f1f5f9;
+    border-color: #1565c0;
+    color: #1565c0;
+}
+
+.input-form-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.stok-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.stok-input:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.1);
+}
+
+.btn-submit-stok {
+    background: #27ae60; /* Hijau sesuai gambar */
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit-stok:hover {
+    background: #219150;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.2);
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+    .input-form-row {
+        flex-direction: column;
+    }
+    .btn-submit-stok {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   PAGE: TRACKING (Spesifik sesuai Desain Screenshot)
+   ============================================================ */
+
+/* Container Utama & Card Utama */
+.tracking-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Membuat card di tengah */
+    padding-top: 50px;
+}
+
+.tracking-search-card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 900px; /* Lebar card sesuai desain */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Shadow halus */
+}
+
+/* Header Text */
+.tracking-card-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1a1e26;
+}
+
+.tracking-card-header p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Flex Row: Input + Button Cari */
+.tracking-search-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tracking-search-area input {
+    flex: 1; /* Input memanjang memenuhi ruang */
+    padding: 15px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.tracking-search-area input:focus {
+    border-color: #1565c0;
+}
+
+/* Override Tombol Tambah agar warnanya BIRU (sesuai desain) */
+#btnLacak {
+    background: #1e88e5; /* Biru cerah sesuai desain */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btnLacak:hover {
+    background: #1565c0;
+}
+
+/* Area Hint Nomor DO */
+.do-hint-area {
+    background: #f8f9fa; /* Latar belakang abu-abu sangat muda */
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.hint-label {
+    color: #6c757d;
+}
+
+/* Kotak Kuning Nomor DO */
+.do-number {
+    background: #ffc107; /* Kuning cerah sesuai desain */
+    color: #333;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-family: monospace; /* Biar kayak kode */
+    font-weight: 500;
+}
+
+/* =========================
+   HASIL TRACKING (Sembunyi)
+   ========================= */
+.tracking-result-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.status-result-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Penyesuaian Responsif */
+@media (max-width: 768px) {
+    .tracking-search-area {
+        flex-direction: column;
+    }
+    .do-hint-area {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.progress-container {
+    background: #e2e8f0;
+    border-radius: 50px;
+    height: 25px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: #27ae60; /* Hijau sesuai desain */
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 600;
+}
+
+.status-result-card {
+    border-left: 5px solid #1e88e5; /* Garis biru di samping */
+    padding-left: 25px;
+}
+
+.riwayat-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.riwayat-list li {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #475569;
+}
